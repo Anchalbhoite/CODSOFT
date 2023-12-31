@@ -1,29 +1,31 @@
-let displayValue = "0";
+let display = document.getElementById('display');
+let currentInput = '0';
 
-function updateDisplay() {
-    document.getElementById("display").innerText = displayValue;
-}
-
-function appendToDisplay(value) {
-    if (displayValue === "0" && value !== ".") {
-        displayValue = value;
-    } else {
-        displayValue += value;
-    }
+function clearDisplay() {
+    currentInput = '0';
     updateDisplay();
 }
 
-function clearDisplay() {
-    displayValue = "0";
+function appendToDisplay(value) {
+    if (currentInput === '0' && value !== '.') {
+        currentInput = value;
+    } else {
+        currentInput += value;
+    }
     updateDisplay();
 }
 
 function calculate() {
     try {
-        displayValue = eval(displayValue).toString();
+        currentInput = eval(currentInput).toString();
         updateDisplay();
     } catch (error) {
-        displayValue = "Error";
+        currentInput = 'Error';
         updateDisplay();
     }
 }
+
+function updateDisplay() {
+    display.textContent = currentInput;
+}
+
