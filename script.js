@@ -5,7 +5,6 @@ function clearDisplay() {
     currentInput = '0';
     updateDisplay();
 }
-
 function appendToDisplay(value) {
     if (currentInput === '0' && value !== '.') {
         currentInput = value;
